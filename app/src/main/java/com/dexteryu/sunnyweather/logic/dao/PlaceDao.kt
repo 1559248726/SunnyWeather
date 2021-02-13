@@ -1,4 +1,4 @@
-package com.sunnyweather.android.logic.dao
+package com.dexteryu.sunnyweather.logic.dao
 
 import android.content.Context
 import androidx.core.content.edit

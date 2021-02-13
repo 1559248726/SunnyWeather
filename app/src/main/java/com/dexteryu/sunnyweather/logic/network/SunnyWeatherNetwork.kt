@@ -1,6 +1,5 @@
 package com.dexteryu.sunnyweather.logic.network
 
-import com.sunnyweather.android.logic.network.WeatherService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -10,11 +9,11 @@ import kotlin.coroutines.suspendCoroutine
 
 object SunnyWeatherNetwork {
 
-//    private val weatherService = ServiceCreator.create(WeatherService::class.java)
-//
-//    suspend fun getDailyWeather(lng: String, lat: String) = weatherService.getDailyWeather(lng, lat).await()
-//
-//    suspend fun getRealtimeWeather(lng: String, lat: String) = weatherService.getRealtimeWeather(lng, lat).await()
+    private val weatherService = ServiceCreator.create(WeatherService::class.java)
+
+    suspend fun getDailyWeather(lng: String, lat: String) = weatherService.getDailyWeather(lng, lat).await()
+
+    suspend fun getRealtimeWeather(lng: String, lat: String) = weatherService.getRealtimeWeather(lng, lat).await()
 
     private val placeService = ServiceCreator.create(PlaceService::class.java)
 

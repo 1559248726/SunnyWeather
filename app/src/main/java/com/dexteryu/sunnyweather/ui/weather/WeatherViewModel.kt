@@ -1,4 +1,4 @@
-package com.sunnyweather.android.ui.weather
+package com.dexteryu.sunnyweather.ui.weather
 
 import androidx.lifecycle.*
 import com.dexteryu.sunnyweather.logic.Repository

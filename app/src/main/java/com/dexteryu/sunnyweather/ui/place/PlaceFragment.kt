@@ -8,13 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dexteryu.sunnyweather.MainActivity
-import com.dexteryu.sunnyweather.R
 import com.dexteryu.sunnyweather.databinding.FragmentPlaceBinding
-import com.sunnyweather.android.ui.weather.WeatherActivity
+import com.dexteryu.sunnyweather.ui.weather.WeatherActivity
 
 class PlaceFragment : Fragment() {
 
@@ -36,21 +34,24 @@ class PlaceFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        if (activity is MainActivity && viewModel.isPlaceSaved()) {
-//            val place = viewModel.getSavedPlace()
-//            val intent = Intent(context, WeatherActivity::class.java).apply {
-//                putExtra("location_lng", place.location.lng)
-//                putExtra("location_lat", place.location.lat)
-//                putExtra("place_name", place.name)
-//            }
-//            startActivity(intent)
-//            activity?.finish()
-//            return
-//        }
+
+        if (activity is MainActivity && viewModel.isPlaceSaved()) {
+            val place = viewModel.getSavedPlace()
+            val intent = Intent(context, WeatherActivity::class.java).apply {
+                putExtra("location_lng", place.location.lng)
+                putExtra("location_lat", place.location.lat)
+                putExtra("place_name", place.name)
+            }
+            startActivity(intent)
+            activity?.finish()
+            return
+        }
+
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)
         binding.recyclerView.adapter = adapter
+
         binding.searchPlaceEdit.addTextChangedListener { editable ->
             val content = editable.toString()
             if (content.isNotEmpty()) {

@@ -1,8 +1,8 @@
-package com.sunnyweather.android.logic.network
+package com.dexteryu.sunnyweather.logic.network
 
 import com.dexteryu.sunnyweather.SunnyWeatherApplication
-import com.sunnyweather.android.logic.model.DailyResponse
-import com.sunnyweather.android.logic.model.RealtimeResponse
+import com.dexteryu.sunnyweather.logic.model.DailyResponse
+import com.dexteryu.sunnyweather.logic.model.RealtimeResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

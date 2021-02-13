@@ -1,6 +1,6 @@
-package com.sunnyweather.android.logic.model
+package com.dexteryu.sunnyweather.logic.model
 
-import com.sunnyweather.android.R
+import com.dexteryu.sunnyweather.R
 
 class Sky (val info: String, val icon: Int, val bg: Int)
 
@@ -30,5 +30,5 @@ private val sky = mapOf(
     )
 
 fun getSky(skycon: String): Sky {
-    return sky[skycon] ?: sky["CLEAR_DAY"]!!
+    return sky[skycon] ?: (sky["CLEAR_DAY"] ?: error(""))
 }
